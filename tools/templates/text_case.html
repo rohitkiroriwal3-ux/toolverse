@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.tool-container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.tool-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.text-area{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+resize:vertical;
+}
+
+.button-group{
+margin-top:20px;
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.tool-btn{
+background:#2f5da8;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+.tool-btn:hover{
+opacity:0.9;
+}
+
+.result-box{
+margin-top:25px;
+padding:15px;
+background:#f4f6f9;
+border-radius:6px;
+color:#243b64;
+word-break:break-word;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.tool-container{
+padding:25px;
+}
+
+.button-group{
+flex-direction:column;
+}
+
+.tool-btn{
+width:100%;
+}
+
+}
+
+</style>
+
+
+<div class="tool-container">
+
+<h1>🔤 Text Case Converter</h1>
+
+<p>Convert text to uppercase, lowercase or title case instantly.</p>
+
+<form method="post">
+
+{% csrf_token %}
+
+<textarea
+name="text"
+rows="10"
+class="text-area"
+placeholder="Enter your text here..."
+>{{ text }}</textarea>
+
+<div class="button-group">
+
+<button class="tool-btn" name="action" value="upper">
+UPPERCASE
+</button>
+
+<button class="tool-btn" name="action" value="lower">
+lowercase
+</button>
+
+<button class="tool-btn" name="action" value="title">
+Title Case
+</button>
+
+</div>
+
+</form>
+
+
+{% if result %}
+
+<div class="result-box">
+
+<strong>Result:</strong>
+
+<br><br>
+
+{{ result }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

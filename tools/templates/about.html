@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.about-container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.about-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.about-container p{
+line-height:1.7;
+color:#444;
+margin-bottom:20px;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.about-container{
+padding:25px;
+}
+
+}
+
+</style>
+
+<div class="about-container">
+
+<h1>About ToolVerse</h1>
+
+<p>
+Welcome to <strong>ToolVerse</strong>, your destination for fast and simple online tools.
+</p>
+
+<p>
+Our platform provides a collection of useful tools that help users perform tasks such as
+text editing, image processing, PDF management and various utility functions directly from the browser.
+</p>
+
+<p>
+Our goal is to provide easy-to-use tools that work smoothly on all devices including
+mobile phones, tablets and desktop computers without requiring any software installation.
+</p>
+
+<p>
+All tools on ToolVerse are completely free to use and designed to help users save time,
+increase productivity and complete tasks quickly online.
+</p>
+
+</div>
+
+{% endblock %}

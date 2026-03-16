@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.tool-container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.tool-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.text-area{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+resize:vertical;
+}
+
+.tool-btn{
+margin-top:20px;
+background:#2f5da8;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+.tool-btn:hover{
+opacity:0.9;
+}
+
+.result-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:25px;
+}
+
+.result-box{
+background:#f4f6f9;
+padding:15px;
+border-radius:6px;
+font-size:18px;
+color:#243b64;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.tool-container{
+padding:25px;
+}
+
+.result-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+
+<div class="tool-container">
+
+<h1>📝 Word Counter</h1>
+
+<p>Count words and characters instantly.</p>
+
+<form method="post">
+
+{% csrf_token %}
+
+<textarea
+name="text"
+rows="10"
+class="text-area"
+placeholder="Enter or paste your text here..."
+>{{ text }}</textarea>
+
+<br>
+
+<button type="submit" class="tool-btn">
+Count Words
+</button>
+
+</form>
+
+
+{% if words or characters %}
+
+<div class="result-grid">
+
+<div class="result-box">
+<strong>Words</strong>
+<br>
+{{ words }}
+</div>
+
+<div class="result-box">
+<strong>Characters</strong>
+<br>
+{{ characters }}
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.tool-container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.tool-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.upload-box{
+border:2px dashed #ccc;
+padding:30px;
+border-radius:8px;
+margin-bottom:20px;
+background:#fafafa;
+}
+
+.upload-box input{
+margin-top:10px;
+}
+
+.tool-btn{
+background:#2f5da8;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+.tool-btn:hover{
+opacity:0.9;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.tool-container{
+padding:25px;
+}
+
+}
+
+</style>
+
+
+<div class="tool-container">
+
+<h1>🖼 JPG to PNG Converter</h1>
+
+<p>Convert JPG images to PNG format instantly.</p>
+
+<form method="post" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<div class="upload-box">
+
+<p>Select a JPG image</p>
+
+<input type="file" name="image" required>
+
+</div>
+
+<button type="submit" class="tool-btn">
+Convert to PNG
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

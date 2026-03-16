@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.tool-page{
+display:flex;
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.tool-content{
+flex:3;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.sidebar{
+flex:1;
+}
+
+.sidebar-ad{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.tool-content h1{
+margin-top:0;
+color:#243b64;
+}
+
+.open-btn{
+padding:12px 25px;
+font-size:16px;
+background:#2f5da8;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.open-btn:hover{
+opacity:0.9;
+}
+
+.bottom-ad{
+margin-top:30px;
+text-align:center;
+}
+
+/* mobile */
+
+@media (max-width:900px){
+
+.tool-page{
+flex-direction:column;
+}
+
+.sidebar{
+order:2;
+}
+
+}
+
+</style>
+
+
+<div class="tool-page">
+
+<!-- TOOL CONTENT -->
+
+<div class="tool-content">
+
+<h1>{{ tool.icon }} {{ tool.name }}</h1>
+
+<p>{{ tool.description }}</p>
+
+<p style="color:gray;font-size:14px;">
+🔥 Used {{ tool.usage_count }} times
+</p>
+
+<br>
+
+<a href="{{ tool.url }}">
+
+<button class="open-btn">
+Open Tool
+</button>
+
+</a>
+
+<br><br>
+
+<h2>About {{ tool.name }}</h2>
+
+<p>
+
+{{ tool.description }}
+
+This free online {{ tool.name }} tool helps users complete tasks quickly
+without installing any software. It works on all devices including
+mobile, tablet and desktop.
+
+</p>
+
+<br>
+
+<h2>How to use {{ tool.name }}</h2>
+
+<ol>
+
+<li>Click the "Open Tool" button</li>
+
+<li>Upload or enter your data</li>
+
+<li>Click the process button</li>
+
+<li>Download or copy the result</li>
+
+</ol>
+
+<br>
+
+<h2>Why use this tool?</h2>
+
+<ul>
+
+<li>100% Free</li>
+<li>No registration required</li>
+<li>Fast processing</li>
+<li>Works on all devices</li>
+
+</ul>
+
+<!-- bottom ad -->
+
+<div class="bottom-ad">
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-XXXXXXXX"
+data-ad-slot="1234567890"
+data-ad-format="auto"></ins>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+</div>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="sidebar-ad">
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-XXXXXXXX"
+data-ad-slot="1234567890"
+data-ad-format="auto"></ins>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

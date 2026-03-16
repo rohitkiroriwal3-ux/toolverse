@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.landing-container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+line-height:1.7;
+}
+
+.landing-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.open-btn{
+padding:12px 25px;
+font-size:16px;
+background:#2f5da8;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.open-btn:hover{
+opacity:0.9;
+}
+
+.feature-list{
+margin-top:10px;
+}
+
+.feature-list li{
+margin-bottom:8px;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.landing-container{
+padding:25px;
+}
+
+}
+
+</style>
+
+
+<div class="landing-container">
+
+<h1>{{ tool.name }} Online Free</h1>
+
+<p>
+
+Use our free <strong>{{ tool.name }}</strong> tool online.
+No signup required. This fast and simple tool helps users complete
+tasks directly in the browser.
+
+</p>
+
+<br>
+
+<a href="{{ tool.url }}">
+
+<button class="open-btn">
+Open {{ tool.name }}
+</button>
+
+</a>
+
+<br><br>
+
+<h2>What is {{ tool.name }}?</h2>
+
+<p>
+
+{{ tool.name }} is an online tool designed to help users perform tasks
+quickly without installing any software.
+
+It works directly in your browser and supports all devices including
+mobile phones, tablets and desktop computers.
+
+</p>
+
+<br>
+
+<h2>Why use our {{ tool.name }}?</h2>
+
+<ul class="feature-list">
+
+<li>100% Free to use</li>
+<li>No signup required</li>
+<li>Fast processing</li>
+<li>Works on all devices</li>
+
+</ul>
+
+<br>
+
+<h2>How to use {{ tool.name }}?</h2>
+
+<ol>
+
+<li>Click the "Open Tool" button</li>
+<li>Upload or enter your data</li>
+<li>Process the data</li>
+<li>Download or copy the result</li>
+
+</ol>
+
+</div>
+
+{% endblock %}

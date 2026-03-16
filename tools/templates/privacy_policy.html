@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.privacy-container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.privacy-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.privacy-container h2{
+margin-top:30px;
+color:#243b64;
+}
+
+.privacy-container p{
+line-height:1.7;
+color:#444;
+margin-bottom:15px;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.privacy-container{
+padding:25px;
+}
+
+}
+
+</style>
+
+
+<div class="privacy-container">
+
+<h1>Privacy Policy</h1>
+
+<p>
+Your privacy is important to us. This Privacy Policy explains how our website collects,
+uses, and protects your information when you use our tools.
+</p>
+
+
+<h2>Information We Collect</h2>
+
+<p>
+We do not collect personal information unless you voluntarily provide it.
+Most of our tools process data temporarily and do not store uploaded files
+or text permanently on our servers.
+</p>
+
+
+<h2>Cookies</h2>
+
+<p>
+Our website may use cookies to improve user experience, remember preferences,
+and analyze website traffic.
+</p>
+
+
+<h2>Third-Party Services</h2>
+
+<p>
+We may use third-party services such as Google Analytics and Google AdSense.
+These services may collect information according to their own privacy policies.
+</p>
+
+
+<h2>Changes to This Policy</h2>
+
+<p>
+We may update this Privacy Policy from time to time. Any updates will be
+posted on this page.
+</p>
+
+</div>
+
+{% endblock %}

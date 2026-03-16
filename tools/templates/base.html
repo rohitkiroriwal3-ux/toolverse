@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+{% if tool and tool.seo_title %}
+{{ tool.seo_title }}
+{% elif tool %}
+{{ tool.name }} Online Tool
+{% else %}
+ToolVerse - Free Online Tools
+{% endif %}
+</title>
+
+<meta name="description" content="{% if tool and tool.seo_description %}{{ tool.seo_description }}{% endif %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+crossorigin="anonymous"></script>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f6f9;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#294a7c;
+color:white;
+padding:15px 25px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.nav-links a:hover{
+opacity:0.8;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+/* ADS */
+
+.ad-box{
+text-align:center;
+margin:20px 0;
+}
+
+/* FOOTER */
+
+.footer{
+background:#294a7c;
+color:white;
+text-align:center;
+padding:40px 20px;
+margin-top:50px;
+}
+
+.footer h2{
+margin:0 0 10px 0;
+}
+
+.footer p{
+color:#dbe3f2;
+}
+
+.footer-links{
+margin-top:15px;
+}
+
+.footer-links a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+text-decoration:underline;
+}
+
+.copyright{
+margin-top:15px;
+font-size:14px;
+color:#dbe3f2;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+.nav-links{
+flex-direction:column;
+gap:10px;
+}
+
+.container{
+padding:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+🔧 ToolVerse
+</div>
+
+<div class="nav-links">
+
+<a href="/">Home</a>
+<a href="/#text-tools">Text Tools</a>
+<a href="/#image-tools">Image Tools</a>
+<a href="/#pdf-tools">PDF Tools</a>
+<a href="/contact/">Contact</a>
+
+</div>
+
+</div>
+
+
+<!-- TOP AD -->
+
+<div class="ad-box">
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-XXXXXXXX"
+data-ad-slot="1234567890"
+data-ad-format="auto"></ins>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+
+<!-- PAGE CONTENT -->
+
+<div class="container">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<h2>🔧 ToolVerse</h2>
+
+<p>Free online tools for images, PDF, text and utilities.</p>
+
+<div class="footer-links">
+
+<a href="/about/">About</a>
+<a href="/privacy-policy/">Privacy</a>
+<a href="/disclaimer/">Disclaimer</a>
+<a href="/sitemap-page/">Sitemap</a>
+<a href="/contact/">Contact</a>
+<a href="/terms/">Terms</a>
+
+</div>
+
+<div class="copyright">
+© 2026 ToolVerse
+</div>
+
+</div>
+
+
+</body>
+</html>

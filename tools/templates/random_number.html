@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+.tool-container{
+max-width:600px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.tool-container h1{
+margin-top:0;
+color:#243b64;
+}
+
+.input-group{
+margin-bottom:20px;
+text-align:left;
+}
+
+.input-group label{
+display:block;
+margin-bottom:6px;
+font-weight:bold;
+}
+
+.input-group input{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+.tool-btn{
+background:#2f5da8;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+.tool-btn:hover{
+opacity:0.9;
+}
+
+.result-box{
+margin-top:25px;
+padding:15px;
+background:#f4f6f9;
+border-radius:6px;
+font-size:24px;
+font-weight:bold;
+color:#243b64;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+.tool-container{
+padding:25px;
+}
+
+}
+
+</style>
+
+
+<div class="tool-container">
+
+<h1>🎲 Random Number Generator</h1>
+
+<p>Generate random numbers between a minimum and maximum value.</p>
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="input-group">
+
+<label>Minimum Number</label>
+<input type="number" name="min" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Maximum Number</label>
+<input type="number" name="max" required>
+
+</div>
+
+<button type="submit" class="tool-btn">
+Generate Number
+</button>
+
+</form>
+
+
+{% if number %}
+
+<div class="result-box">
+
+{{ number }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

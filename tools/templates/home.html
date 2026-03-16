@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+/* HERO SECTION */
+
+.hero{
+background:linear-gradient(#dbe7f7,#c9d8ec);
+padding:70px 20px;
+text-align:center;
+border-radius:10px;
+margin-bottom:40px;
+}
+
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
+color:#1b2b4d;
+}
+
+.hero p{
+font-size:18px;
+color:#4a5a73;
+margin-bottom:30px;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+max-width:500px;
+margin:auto;
+}
+
+.search-box input{
+flex:1;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px 0 0 6px;
+font-size:16px;
+}
+
+.search-box button{
+padding:12px 20px;
+border:none;
+background:#2f5da8;
+color:white;
+font-size:16px;
+border-radius:0 6px 6px 0;
+cursor:pointer;
+}
+
+/* CATEGORY */
+
+.category-title{
+margin-top:40px;
+font-size:22px;
+font-weight:bold;
+border-bottom:1px solid #ddd;
+padding-bottom:8px;
+color:#243b64;
+}
+
+/* GRID */
+
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+/* CARD */
+
+.tool-card{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.tool-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.tool-card a{
+text-decoration:none;
+color:#1b2b4d;
+font-size:16px;
+font-weight:bold;
+}
+
+.tool-icon{
+font-size:28px;
+margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.hero h1{
+font-size:28px;
+}
+
+.search-box{
+flex-direction:column;
+}
+
+.search-box input{
+border-radius:6px;
+margin-bottom:10px;
+}
+
+.search-box button{
+border-radius:6px;
+}
+
+.tools-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>All Free Online Tools in One Place</h1>
+
+<p>Image Tools, PDF Tools, Text Tools and more.</p>
+
+<form method="get">
+
+<div class="search-box">
+
+<input
+type="text"
+name="q"
+value="{{ query }}"
+placeholder="Search tools...">
+
+<button type="submit">Search</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+{% if query %}
+
+<div class="category-title">Search Results</div>
+
+<div class="tools-grid">
+
+{% for tool in results %}
+
+<div class="tool-card">
+
+<a href="/tools/{{ tool.slug }}/">
+
+<div class="tool-icon">
+{{ tool.icon }}
+</div>
+
+{{ tool.name }}
+
+</a>
+
+</div>
+
+{% empty %}
+
+<p>No tools found.</p>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+
+
+{% if not query %}
+
+<div id="text-tools" class="category-title">Text Tools</div>
+
+<div class="tools-grid">
+
+{% for tool in tools %}
+{% if tool.category == "Text" %}
+
+<div class="tool-card">
+
+<a href="/tools/{{ tool.slug }}/">
+
+<div class="tool-icon">
+{{ tool.icon }}
+</div>
+
+{{ tool.name }}
+
+</a>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+
+
+<div id="image-tools" class="category-title">Image Tools</div>
+
+<div class="tools-grid">
+
+{% for tool in tools %}
+{% if tool.category == "Image" %}
+
+<div class="tool-card">
+
+<a href="/tools/{{ tool.slug }}/">
+
+<div class="tool-icon">
+{{ tool.icon }}
+</div>
+
+{{ tool.name }}
+
+</a>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+
+
+<div id="pdf-tools" class="category-title">PDF Tools</div>
+
+<div class="tools-grid">
+
+{% for tool in tools %}
+{% if tool.category == "PDF" %}
+
+<div class="tool-card">
+
+<a href="/tools/{{ tool.slug }}/">
+
+<div class="tool-icon">
+{{ tool.icon }}
+</div>
+
+{{ tool.name }}
+
+</a>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+
+
+<div class="category-title">Utility Tools</div>
+
+<div class="tools-grid">
+
+{% for tool in tools %}
+{% if tool.category == "Utility" %}
+
+<div class="tool-card">
+
+<a href="/tools/{{ tool.slug }}/">
+
+<div class="tool-icon">
+{{ tool.icon }}
+</div>
+
+{{ tool.name }}
+
+</a>
+
+</div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}
