@@ -23,6 +23,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('terms/', views.terms, name='terms'),
     path('disclaimer/', views.disclaimer, name='disclaimer'),
+    path("create-admin/", views.create_admin),
     path('sitemap-page/', views.sitemap_page, name='sitemap_page'),
     
 ]   
