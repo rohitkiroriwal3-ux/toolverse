@@ -13,6 +13,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Tool
 from django.db.models import F
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 from .models import Tool
@@ -337,3 +338,9 @@ def sitemap_page(request):
     return render(request,"sitemap_page.html",{
         "tools":tools
     })
+
+
+def create_admin(request):
+    if not User.objects.filter(username="rohit").exists():
+        User.objects.create_superuser("rohit", "rohit@gmail.com", "12345678")
+    return HttpResponse("Admin created")
